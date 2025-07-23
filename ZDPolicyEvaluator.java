@@ -221,9 +221,11 @@ public class ZDPolicyEvaluator {
 
 		ZDPolicy approx = new AYZDPolicyMinh();
 
+		ZDPolicy minhPolicy = new ZDPolicyMinh();
+
 		// TODO - try out your own policies here
 
-
+		System.out.println("Evaluating Minh's Old Policy: ");
 		ZDPolicyEvaluator evaluator = new ZDPolicyEvaluator(optimal, approx);
 		double pol1p1 = evaluator.pWin1[0][0][0][0][ZombieDiceSolver.INITIAL_DICE_STATE_INDEX];
 		double pol2p1 = evaluator.pWin2[0][0][0][0][ZombieDiceSolver.INITIAL_DICE_STATE_INDEX];
@@ -239,6 +241,25 @@ public class ZDPolicyEvaluator {
 		System.out.println("Policy 1 average win rate: " + avg1);
 		System.out.println("Policy 2 average win rate: " + avg2);
 		System.out.println("Average win rate difference: " + diff);
+
+
+		System.out.println("Evaluating Minh's Advanced Policy: ");
+		evaluator = new ZDPolicyEvaluator(optimal, approx);
+		pol1p1 = evaluator.pWin1[0][0][0][0][ZombieDiceSolver.INITIAL_DICE_STATE_INDEX];
+		pol2p1 = evaluator.pWin2[0][0][0][0][ZombieDiceSolver.INITIAL_DICE_STATE_INDEX];
+		pol1p2 = 1 - pol2p1;
+		pol2p2 = 1 - pol1p1;
+		avg1 = (pol1p1 + pol1p2) / 2.0;
+		avg2 = (pol2p1 + pol2p2) / 2.0;
+		diff = avg2 - avg1;
+		System.out.println("Policy 1 first player win rate: " + pol1p1);
+		System.out.println("Policy 2 first player win rate: " + pol2p1);
+		System.out.println("Policy 1 second player win rate: " + pol1p2);
+		System.out.println("Policy 2 second player win rate: " + pol2p2);
+		System.out.println("Policy 1 average win rate: " + avg1);
+		System.out.println("Policy 2 average win rate: " + avg2);
+		System.out.println("Average win rate difference: " + diff);
+
 	}
 
 

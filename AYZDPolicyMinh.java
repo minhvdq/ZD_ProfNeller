@@ -6,21 +6,21 @@ public class AYZDPolicyMinh implements AYZDPolicy, ZDPolicy {
 	static int param;
 	
 	public boolean willRoll(int p, int i, int j, int b, int s) {
-			int iHold = i + b;
-			if (p == 1 && j >= GOAL && iHold < j)
-				return true;
+		int iHold = i + b;
+		if (p == 1 && j >= GOAL && iHold < j)
+			return true;
 //			if (p == 1 && j >= GOAL)
 //				return iHold < j;
-			else if (s == 0) 
-				return true; 
-			else if (s == 1) { 
-				if (j >= 8) 
-					return iHold < Math.max(13, j + 3); //iHold < (13 > j + 3 ? 13 : j + 3);  
-				else 
-					return b < 4;
-			}
+		else if (s == 0) 
+			return true; 
+		else if (s == 1) { 
+			if (j >= 8) 
+				return iHold < Math.max(13, j + 3); //iHold < (13 > j + 3 ? 13 : j + 3);  
 			else 
-				return b < 1;
+				return b < 4;
+		}
+		else 
+			return b < 1;
 	}
 
 	@Override

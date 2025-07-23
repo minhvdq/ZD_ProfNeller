@@ -85,7 +85,7 @@ public class ZombieDiceSolver implements ZDPolicy {
 	static final int SHOTGUN_GREEN = 0, SHOTGUN_YELLOW = 1, SHOTGUN_RED = 2, FOOTPRINT_GREEN = 3, FOOTPRINT_YELLOW = 4, FOOTPRINT_RED = 5,
 			SUPPLY_GREEN = 6, SUPPLY_YELLOW = 7, SUPPLY_RED = 8; // Indices for the dice state variables representing the number of shotguns, footprints, and supplies of each color.
 	static final int NUM_DICE_STATE_VARS = 9; // Number of variables in the dice state representation.
-	static final int GOAL_SCORE = 13, MAX_SCORE = 3 * GOAL_SCORE; // Max score is an assumed upper bound for scores in the game, which can be adjusted as needed.
+	static final int GOAL_SCORE = 13, MAX_SCORE = 2 * GOAL_SCORE; // Max score is an assumed upper bound for scores in the game, which can be adjusted as needed.
 	// Note: With MAX_SCORE = 3 * GOAL_SCORE, run with "java -Xmx32g ZombieDiceSolver" to avoid OutOfMemoryError.
 	static final int SHOTGUN_BUSTED = -1; // Special dice state value indicating that the player has rolled three or more shotguns and busted.
 	static final int MAX_CHOOSE = 6;
